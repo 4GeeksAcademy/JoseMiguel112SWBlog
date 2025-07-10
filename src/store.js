@@ -26,6 +26,14 @@ export default function storeReducer(store, action = {}) {
         ...store,
         todos: store.todos.map((todo) => (todo.id === id ? { ...todo, background: color } : todo))
       };
+
+      case 'update_people':
+
+       return {
+        ...store,
+        characters: action.payload
+      };
+
     default:
       throw Error('Unknown action.');
   }    
