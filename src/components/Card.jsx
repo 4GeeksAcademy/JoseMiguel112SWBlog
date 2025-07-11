@@ -6,8 +6,8 @@ export const Card = ({name, id}) => {
 
 const {store,dispatch}=useGlobalReducer()
 
-    return (<div className="card" style="width: 18rem;">
-  <img src="..." className="card-img-top" alt="..."/>
+    return (<div className="card" style={{minWidth: "18rem"}}>
+  <img src="https://placehold.co/600x400" className="card-img-top" alt="..."/>
   <div className="card-body">
     <h5 className="card-title">{name}</h5>
     <p className="card-text">Gender: </p>

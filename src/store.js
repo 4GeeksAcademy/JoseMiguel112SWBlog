@@ -34,6 +34,13 @@ export default function storeReducer(store, action = {}) {
         characters: action.payload
       };
 
+      case 'update_planets':
+
+      return {
+        ...store,
+        planets: action.payload
+      };
+
     default:
       throw Error('Unknown action.');
   }    
