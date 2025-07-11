@@ -31,7 +31,7 @@ export default function storeReducer(store, action = {}) {
 
        return {
         ...store,
-        characters: action.payload
+        people: action.payload
       };
 
       case 'update_planets':
@@ -39,6 +39,13 @@ export default function storeReducer(store, action = {}) {
       return {
         ...store,
         planets: action.payload
+      };
+
+      case 'update_character':
+
+      return{
+        ...store,
+        character: action.payload.concat(action.payload)
       };
 
     default:
