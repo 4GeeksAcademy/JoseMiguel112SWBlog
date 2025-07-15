@@ -45,7 +45,22 @@ export default function storeReducer(store, action = {}) {
 
       return{
         ...store,
-        character: action.payload.concat(action.payload)
+        character: action.payload.concat([action.payload])
+      };
+
+      case 'initialize_favs':
+
+      return {
+        ...store,
+        favs: action.payload
+      }
+
+       case 'add_favs':
+
+      return {
+        ...store,
+   
+        favs: store.favs.concat([action.payload])
       };
 
     default:

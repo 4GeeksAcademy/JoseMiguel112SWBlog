@@ -19,8 +19,11 @@ export const Home = () => {
 			.then((data) => dispatch({ type: 'update_people', payload: data }))
 		getPlanets()
 			.then((datap) => dispatch({ type: 'update_planets', payload: datap }))
+		
+		dispatch({ type: 'initialize_favs', payload: []})
+		}
 
-	}, [])
+	, [])
 
 	// {store.people.map(character => {
 	// 					return (

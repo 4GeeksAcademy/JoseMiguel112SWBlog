@@ -7,6 +7,11 @@ export const Card = ({name, id, gender, hair, eye}) => {
 
 const {store,dispatch}=useGlobalReducer()
 
+function addFavs(){
+  console.log(name,id);
+  dispatch({type:'add_favs', payload:{name:name, id:id}})
+}
+
 
 
     return (<div className="card" style={{minWidth: "18rem"}}>
@@ -18,7 +23,7 @@ const {store,dispatch}=useGlobalReducer()
     <p className="card-text">Eye color: {eye}</p>
     <div className="container-fluid d-flex justify-content-between px-0">
     <button className="btn btn-primary">Go somewhere</button>
-    <button className="btn btn-warning">hate</button>
+    <button className="btn btn-warning" onClick={addFavs}><i className="fa-duotone fa-regular fa-heart"></i></button>
     </div>
   </div>
 </div>)

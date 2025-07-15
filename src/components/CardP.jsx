@@ -17,7 +17,7 @@ const {store,dispatch}=useGlobalReducer()
     
     <div className="container-fluid d-flex justify-content-between px-0 mb-0">
     <button className="btn btn-primary">Go somewhere</button>
-    <button className="btn btn-warning">hate</button>
+    <button className="btn btn-warning"><i className="fa-duotone fa-regular fa-heart"></i></button>
     </div>
   </div>
 </div>)
