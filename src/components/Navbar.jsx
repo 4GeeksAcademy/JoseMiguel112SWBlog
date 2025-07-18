@@ -1,10 +1,21 @@
 import { Link } from "react-router-dom";
 import useGlobalReducer from "../hooks/useGlobalReducer";
+import React, {useState, useEffect} from "react";
 
 export const Navbar = () => {
 	const { store, dispatch } = useGlobalReducer()
 
-	
+	function deleteFav(name){
+	 	dispatch({type:'delete_fav', payload:name})
+		
+		
+	}
+
+	useEffect(()=>{
+
+		console.log(store.favs);
+		
+	},[store.favs])
 
 	return (
 		<nav className="navbar navbar-light bg-light">
@@ -16,14 +27,14 @@ export const Navbar = () => {
 
 					<div className="dropdown">
 						<button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-							Read Later List
+							Read Later List {store.favcount}
 						</button>
 						<ul className="dropdown-menu">
 
-							{store.favs?.map((item) => 
-							<li>
+							{store.favs?.map((item, index) => 
+							<li key={index}>
 								<Link to="/detail">{item.name}</Link>
-								<i className="fa-solid fa-trash"></i>
+								<i className="fa-solid fa-trash" onClick={()=>deleteFav(item.name)}></i>
 							</li>)}
 						</ul>
 					</div>

@@ -1,5 +1,5 @@
-export const initialStore=()=>{
-  return{
+export const initialStore = () => {
+  return {
     message: null,
     todos: [
       {
@@ -17,53 +17,62 @@ export const initialStore=()=>{
 }
 
 export default function storeReducer(store, action = {}) {
-  switch(action.type){
+  switch (action.type) {
     case 'add_task':
 
-      const { id,  color } = action.payload
+      const { id, color } = action.payload
 
       return {
         ...store,
         todos: store.todos.map((todo) => (todo.id === id ? { ...todo, background: color } : todo))
       };
 
-      case 'update_people':
+    case 'update_people':
 
-       return {
+      return {
         ...store,
         people: action.payload
       };
 
-      case 'update_planets':
+    case 'update_planets':
 
       return {
         ...store,
         planets: action.payload
       };
 
-      case 'update_character':
+    case 'update_character':
 
-      return{
+      return {
         ...store,
         character: action.payload.concat([action.payload])
       };
 
-      case 'initialize_favs':
+    case 'initialize_favs':
 
       return {
         ...store,
         favs: action.payload
       }
 
-       case 'add_favs':
-
+    case 'add_favs':
+      console.log("add_favs", action.payload)
       return {
         ...store,
-   
-        favs: store.favs.concat([action.payload])
+
+        favs: store.favs.concat([action.payload]),
+        favcount: store.favs.length+1
       };
+
+    case 'delete_fav':
+      console.log("delete_favs", action.payload)
+      return {
+        ...store,
+        favs: store.favs.filter((item) => item.name != action.payload),
+        favcount: store.favs.length - 1
+      }
 
     default:
       throw Error('Unknown action.');
-  }    
+  }
 }
