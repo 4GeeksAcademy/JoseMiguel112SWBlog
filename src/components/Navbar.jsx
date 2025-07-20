@@ -29,7 +29,7 @@ export const Navbar = () => {
 						<button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
 							Read Later List {store.favcount}
 						</button>
-						<ul className="dropdown-menu">
+						<ul className="dropdown-menu ps-1">
 
 							{store.favs?.map((item, index) => 
 							<li key={index}>

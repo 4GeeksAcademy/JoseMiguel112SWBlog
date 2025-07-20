@@ -22,7 +22,7 @@ function addFavs(){
     <p className="card-text">Hair color: {hair}</p>
     <p className="card-text">Eye color: {eye}</p>
     <div className="container-fluid d-flex justify-content-between px-0">
-    <button className="btn btn-primary">Go somewhere</button>
+    <button className="btn btn-primary">Read More</button>
     <button className="btn btn-warning" onClick={addFavs}><i className="fa-duotone fa-regular fa-heart"></i></button>
     </div>
   </div>
