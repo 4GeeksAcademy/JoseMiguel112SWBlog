@@ -40,6 +40,13 @@ export default function storeReducer(store, action = {}) {
         ...store,
         planets: action.payload
       };
+    
+      case 'update_vehicles':
+
+      return {
+        ...store,
+        vehicles:action.payload
+      };
 
     case 'update_character':
 
