@@ -27,11 +27,6 @@ export const Home = () => {
 
 	, [])
 
-	// {store.people.map(character => {
-	// 					return (
-	// 						<Cards key={character.uid} character={character} />
-	// 					)
-	// 				})}
 
 	return (
 		<>
