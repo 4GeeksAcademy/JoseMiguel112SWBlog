@@ -81,8 +81,9 @@ export async function getPeople() {
    }
 
    export async function getWhatever(url) {
+	console.log("getWhatever", url);
 	try {
-		let response = await fetch(url,{
+		let response = await fetch(str(url),{
 			method: 'GET'
 		})
 		let data = await response.json()
@@ -97,6 +98,5 @@ export async function getPeople() {
 		console.log(error);
 		
 	 }
-	 	
    }
 

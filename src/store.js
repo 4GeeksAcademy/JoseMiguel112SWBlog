@@ -79,7 +79,12 @@ export default function storeReducer(store, action = {}) {
         favcount: store.favs.length - 1
       }
 
-    
+    case 'update_detail':
+      console.log("update_detail", action.payload)
+      return {
+        ...store,
+        detail: action.payload
+      }
 
     default:
       throw Error('Unknown action.');
