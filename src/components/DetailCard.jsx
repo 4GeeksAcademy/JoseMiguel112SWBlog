@@ -9,7 +9,7 @@ export const DetailCard = props => {
   useEffect(() => {
     let result = null;
     const name = props.item;
-    
+
     console.log("Searching for item:", name);
     console.log("Store contents:", store.people);
     // Buscar en people
@@ -41,22 +41,40 @@ export const DetailCard = props => {
     }
     setFoundItem(result);
     console.log("Found item:", result);
-    
+
   }, [props.item, store.people, store.planets, store.vehicles]);
 
   return (
-    <div className="card mb-3" style={{ maxWidth: 540 }}>
-      <div className="row g-0">
-        <div className="col-md-4">
-          <img src="https://placehold.co/600x400" className="img-fluid" alt="..." />
+    <div className="card mb-3">
+      <div className="row g-0 m-2 d-flex">
+        <div className="w-75">
+          <img src="https://placehold.co/600x400" className="img-fluid w-100" alt="..." />
         </div>
-        <div className="col-md-8">
+        <div className="w-25 d-flex flex-column">
           <div className="card-body">
             <h5 className="card-title">{foundItem?.properties.name}</h5>
-            <p className="card-text"></p>
+            <p className="card-text">{foundItem?.description}</p>
           </div>
         </div>
+        <div className="row row-cols-6 mt-4">
+
+          {foundItem && foundItem.properties &&
+            Object.entries(foundItem.properties).map(([key, value]) => (
+              <div className="container">
+
+                <p className="card-text" key={key}>
+                  <strong>{key}:</strong>
+                  <p>
+
+                    {value}
+                  </p>
+                </p>
+              </div>
+            ))
+          }
+        </div>
       </div>
+
     </div>
   );
 };

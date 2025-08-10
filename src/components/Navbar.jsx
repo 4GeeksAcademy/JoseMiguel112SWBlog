@@ -33,7 +33,7 @@ export const Navbar = () => {
 
 							{store.favs?.map((item, index) => 
 							<li key={index}>
-								<Link to="/detail">{item.name}</Link>
+								<Link to={`/detail/${item.name}`}>{item.name}</Link>
 								<i className="fa-solid fa-trash" onClick={()=>deleteFav(item.name)}></i>
 							</li>)}
 						</ul>

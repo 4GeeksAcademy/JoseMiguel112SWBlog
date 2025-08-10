@@ -14,6 +14,13 @@ export const Home = () => {
 
 	const { store, dispatch } = useGlobalReducer()
 
+	function favController() {
+	
+		if (!store.favs || store.favs.length === 0) {
+			dispatch({ type: 'initialize_favs', payload: [] })
+		}
+	}
+
 	useEffect(() => {
 
 		getPeople()
@@ -22,11 +29,10 @@ export const Home = () => {
 			.then((datap) => dispatch({ type: 'update_planets', payload: datap }))
 		getVehicles()
 			.then((data) => dispatch({ type: 'update_vehicles', payload: data }))
-		dispatch({ type: 'initialize_favs', payload: []})
 		
-		}
+		favController()
 
-	, [])
+	}, [])
 
 
 	return (

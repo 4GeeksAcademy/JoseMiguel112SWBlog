@@ -34,7 +34,9 @@ export const CardP = ({ name, id, population, terrain, gravity }) => {
       </div>
 
       <div className="container-fluid d-flex justify-content-between px-0 mb-0 pb-0 mt-2">
-        <button className="btn btn-primary">Read More</button>
+          <Link to={`/detail/${name}`}>
+          <button className="btn btn-primary">Read More</button>
+        </Link>
         <button className="btn btn-warning" onClick={addFavs}><i className="fa-duotone fa-regular fa-heart"></i></button>
       </div>
     </div>
