@@ -80,3 +80,23 @@ export async function getPeople() {
 	
    }
 
+   export async function getWhatever(url) {
+	try {
+		let response = await fetch(url,{
+			method: 'GET'
+		})
+		let data = await response.json()
+
+		if (response.status === 200) {
+			return data.results
+		}
+		
+		
+		
+	 } catch (error) {
+		console.log(error);
+		
+	 }
+	 	
+   }
+

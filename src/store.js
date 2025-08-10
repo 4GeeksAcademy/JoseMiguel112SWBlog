@@ -40,12 +40,12 @@ export default function storeReducer(store, action = {}) {
         ...store,
         planets: action.payload
       };
-    
-      case 'update_vehicles':
+
+    case 'update_vehicles':
 
       return {
         ...store,
-        vehicles:action.payload
+        vehicles: action.payload
       };
 
     case 'update_character':
@@ -68,7 +68,7 @@ export default function storeReducer(store, action = {}) {
         ...store,
 
         favs: store.favs.concat([action.payload]),
-        favcount: store.favs.length+1
+        favcount: store.favs.length + 1
       };
 
     case 'delete_fav':
@@ -78,6 +78,8 @@ export default function storeReducer(store, action = {}) {
         favs: store.favs.filter((item) => item.name != action.payload),
         favcount: store.favs.length - 1
       }
+
+    
 
     default:
       throw Error('Unknown action.');
